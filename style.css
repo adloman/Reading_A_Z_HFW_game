@@ -1,0 +1,298 @@
+:root {
+    --bg: #1a1a2e;
+    --card: #16213e;
+    --accent: #4ecca3;
+    --wrong: #e94560;
+    --text: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.screen { 
+    text-align: center; 
+    width: 95vw; 
+    max-width: 1000px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden { display: none !important; }
+
+/* Scoreboard - Optimized for 10 Players */
+#scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.player-score-card {
+    background: var(--card);
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    text-align: center;
+}
+
+.player-score-card.active {
+    border-color: var(--accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--accent);
+    background: #1f2d52;
+}
+
+.score-val {
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); color: var(--accent); }
+    100% { transform: scale(1); }
+}
+
+.score-flash { animation: pulse 0.5s ease-in-out; }
+
+/* Word Card */
+#word-card {
+    background: white;
+    color: #000;
+    padding: 40px 60px;
+    border-radius: 20px;
+    margin: 15px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    min-width: 300px;
+}
+
+#display-word { 
+    font-size: 100px; 
+    margin: 0; 
+    text-transform: lowercase; 
+    font-weight: bold;
+}
+
+/* Buttons & Controls */
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.main-btn {
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    background: var(--accent);
+    color: #1a1a2e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.main-btn:hover { transform: scale(1.05); }
+
+.control-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.correct { background: var(--accent); color: #1a1a2e; }
+.wrong { background: var(--wrong); }
+
+.audio-btn {
+    background: #eee;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.end-btn {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Setup Screen Grid */
+#player-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.p-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}#sentence-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.sentence-option-btn {
+    padding: 20px;
+    font-size: 1.5rem;
+    background: var(--card);
+    color: white;
+    border: 2px solid #3e4a61;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sentence-option-btn:hover {
+    border-color: var(--accent);
+    background: #1f2d52;
+}
+
+#post-sentence-controls {
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 2px dashed #444;
+}:root {
+    --bg: #ff00cc; /* Neon Pink */
+    --card-bg: #ffffff;
+    --accent: #00ffcc; /* Neon Mint */
+    --wrong: #ff4d4d;
+    --player-card: #2d3436;
+    --text: #ffffff;
+    --gold: #f1c40f;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.screen { text-align: center; width: 95vw; max-width: 900px; }
+.hidden { display: none !important; }
+
+/* Scoreboard Floating at Top */
+#global-scoreboard {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    z-index: 100;
+}
+
+.player-score-card {
+    background: rgba(0,0,0,0.7);
+    padding: 5px 12px;
+    border-radius: 15px;
+    border: 3px solid transparent;
+    transition: 0.3s;
+    min-width: 80px;
+}
+
+.player-score-card.active {
+    border-color: var(--accent);
+    transform: scale(1.1);
+    background: rgba(0, 255, 204, 0.3);
+}
+
+.score-val { color: var(--gold); font-size: 22px; font-weight: bold; }
+
+/* Word Card */
+#word-card {
+    background: white;
+    color: #333;
+    padding: 40px;
+    border-radius: 30px;
+    border: 8px solid var(--accent);
+    box-shadow: 0 15px 0 rgba(0,0,0,0.2);
+    margin: 20px 0;
+}
+
+#display-word { font-size: 110px; margin: 0; color: #2d3436; }
+
+/* Buttons */
+.main-btn {
+    background: var(--gold);
+    color: #333;
+    padding: 20px 50px;
+    border-radius: 50px;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #c0392b;
+}
+
+.main-btn:active { transform: translateY(4px); box-shadow: 0 4px 0 #c0392b; }
+
+.sentence-option-btn {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border: 4px solid #fff;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.level-badge {
+    background: var(--accent);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}

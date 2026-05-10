@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sight Word Super Arena!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-app">
+        <div id="setup-screen" class="screen">
+            <h1 class="bounce">🌟 Word Super Arena 🌟</h1>
+            <p>Who is playing today?</p>
+            <div id="player-inputs">
+                <input type="text" placeholder="Ladies First 1" class="p-input">
+                <input type="text" placeholder="player 2" class="p-input">
+                <input type="text" placeholder="player 3" class="p-input">
+                <input type="text" placeholder="player 4" class="p-input">
+                <input type="text" placeholder="player 5" class="p-input">
+                <input type="text" placeholder="player 6" class="p-input">
+                <input type="text" placeholder="player 7" class="p-input">
+                <input type="text" placeholder="player 8" class="p-input">
+                <input type="text" placeholder="player 9" class="p-input">
+                <input type="text" placeholder="Gentlemen last 10" class="p-input">
+            </div>
+            <button onclick="startGame()" class="main-btn">READY... GO!</button>
+        </div>
+
+        <div id="global-scoreboard" class="hidden"></div>
+
+        <div id="game-screen" class="screen hidden">
+            <div class="top-bar">
+                <div id="current-level-tag" class="level-badge">List 1</div>
+                <button onclick="endGame()" class="end-btn">Finish Early</button>
+            </div>
+            
+            <div id="turn-indicator">It's <span id="active-player-name">---</span>'s Turn!</div>
+            
+            <div id="word-card" class="pop-in">
+                <h1 id="display-word">WORD</h1>
+                <button onclick="playWordAudio()" class="audio-btn">🔊 Hear Word</button>
+            </div>
+
+            <div class="teacher-controls">
+                <button onclick="handleWordAnswer(false)" class="control-btn wrong">❌ Oops!</button>
+                <button onclick="handleWordAnswer(true)" class="control-btn correct">✅ Perfect!</button>
+            </div>
+        </div>
+
+        <div id="sentence-screen" class="screen hidden">
+            <h2 class="sentence-header">Find the right sentence!</h2>
+            <div id="sentence-options"></div>
+            
+            <div id="post-sentence-controls" class="hidden">
+                <div class="bonus-msg">✨ Awesome Reading! ✨</div>
+                <button onclick="finishTurn()" class="main-btn next-hero-btn">Next guy ➡️</button>
+            </div>
+        </div>
+
+        <div id="podium-screen" class="screen hidden">
+            <h1 id="podium-title">Final Champions!</h1>
+            <div id="winners-list"></div>
+            <button id="next-level-btn" onclick="nextLevel()" class="main-btn">Next World! 🚀</button>
+            <button onclick="location.reload()" class="main-btn secondary">Play Again</button>
+        </div>
+    </div>
+
+    <audio id="snd-correct" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+    <audio id="snd-click" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
